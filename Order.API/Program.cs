@@ -1,3 +1,4 @@
+using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using Order.API.Models;
 
@@ -11,6 +12,13 @@ builder.Services.AddDbContext<OrderAPIDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("SQLServer"));
 });
 
+builder.Services.AddMassTransit(configuratior =>
+{
+    configuratior.UsingRabbitMq((context, _configurator) =>
+    {
+        _configurator.Host("RabbitMQ Host adresi");
+    });
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

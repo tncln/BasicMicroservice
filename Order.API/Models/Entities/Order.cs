@@ -6,7 +6,7 @@ namespace Order.API.Models.Entities
     {
         public Guid OrderId { get; set; }
         public Guid BuyerId { get; set; }
-        public long TotalPrice { get; set; } 
+        public decimal TotalPrice { get; set; } 
         public OrderStatus  OrderStatu { get; set; }
         public DateTime CreatedDate { get; set; }
         public ICollection<OrderItem>? OrderItems { get; set; }
