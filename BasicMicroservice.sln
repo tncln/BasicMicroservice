@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "BasicMicroservice\Shared.csproj", "{B27BCFE1-4D65-4FFC-A7E9-86E5B9206048}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "BasicMicroservice\Shared.csproj", "{B27BCFE1-4D65-4FFC-A7E9-86E5B9206048}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.API", "Order.API\Order.API.csproj", "{99F37EEB-6461-483C-9503-E9D92BEB5223}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Order.API", "Order.API\Order.API.csproj", "{99F37EEB-6461-483C-9503-E9D92BEB5223}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stock.API", "Stock.API\Stock.API.csproj", "{51D165E5-0B14-41FA-B131-929DFD78176E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{99F37EEB-6461-483C-9503-E9D92BEB5223}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99F37EEB-6461-483C-9503-E9D92BEB5223}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99F37EEB-6461-483C-9503-E9D92BEB5223}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51D165E5-0B14-41FA-B131-929DFD78176E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51D165E5-0B14-41FA-B131-929DFD78176E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51D165E5-0B14-41FA-B131-929DFD78176E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51D165E5-0B14-41FA-B131-929DFD78176E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
