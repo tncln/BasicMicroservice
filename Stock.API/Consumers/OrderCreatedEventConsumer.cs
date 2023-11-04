@@ -12,11 +12,13 @@ namespace Stock.API.Consumers
         readonly MongoDBService _mongoDBService;
         IMongoCollection<Stock.API.Models.Entities.Stock> _stockCollection;
         readonly ISendEndpointProvider _sendEndpointProvider;
-        public OrderCreatedEventConsumer(MongoDBService mongoDBService, ISendEndpointProvider sendEndpointProvider)
+        readonly IPublishEndpoint _publishEndpoint;
+        public OrderCreatedEventConsumer(MongoDBService mongoDBService, ISendEndpointProvider sendEndpointProvider, IPublishEndpoint publishEndpoint)
         {
             _mongoDBService = mongoDBService;
             _stockCollection = mongoDBService.GetCollection<Stock.API.Models.Entities.Stock>();
             _sendEndpointProvider = sendEndpointProvider;
+            _publishEndpoint = publishEndpoint;
         }
 
         public async Task Consume(ConsumeContext<OrderCreatedEvent> context)
@@ -48,8 +50,15 @@ namespace Stock.API.Consumers
             else
             {
                 //sipariş geçersiz
+                StockNotReservedEvent stockNotReservedEvent = new()
+                {
+                    BuyerId = context.Message.BuyerId,
+                    OrderId = context.Message.OrderId,
+                    Message = ""
+                };
+            await _publishEndpoint.Publish(stockNotReservedEvent);
             }
-            return Task.CompletedTask;
+            //return Task.CompletedTask;
         }
     }
 }
